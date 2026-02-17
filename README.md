@@ -20,9 +20,10 @@ This is the code for running floor plans using different gradient decent functio
 * vectorize - calculate distance by the highest value (square distances)
 
 **wall_penalty_function()** - selects the function to calculate the penalty cost for teh walls
-* quad - square function (parabola)
+* Quad - square function (parabola)
+* Quartic - power 4 function
 * LN - natural log function
-* linear - linear function
+* Linear - linear function (degenerate case)
 
 ### Gradient
 **gradient_step** - calculating the next h step for the derivative
@@ -52,6 +53,9 @@ This is the code for running floor plans using different gradient decent functio
 **create_movelist** - allows to cacluate the movement anmation of object from start to finish
 
 ## Parameters for each wall cost function
+
+these are the best parameters to use for each function
+
 > Step_Max_Limit = 1000
 
 > distance_per_step = 0.1
@@ -59,9 +63,18 @@ This is the code for running floor plans using different gradient decent functio
 
 | Variable         | Value        |
 | -------------    | ------------ |
-| R                | 0.4          |
+| R                | 1            |
 | gradient_step    | 0.4          |
-| pts_distance     | dor          |
+| pts_distance     | dot          |
+| wall_cost_factor | 2            |
+| gradient_fuction | avg          |
+
+### quartic
+| Variable         | Value        |
+| -------------    | ------------ |
+| R                | 1            |
+| gradient_step    | 0.3          |
+| pts_distance     | vectorize    |
 | wall_cost_factor | 2            |
 | gradient_fuction | avg          |
 
@@ -79,8 +92,12 @@ This is the code for running floor plans using different gradient decent functio
 
 | Variable         | Value        |
 | -------------    | ------------ |
-| R                | 0.4          |
+| R                | 1            |
 | gradient_step    | 0.2          |
 | pts_distance     | vectorize    |
 | wall_cost_factor | 2            |
 | gradient_fuction | avg          |
+
+### Analysis
+
+Analysis of the code is in the CSE5280_FLoor_Plan_Analysis.docx document
